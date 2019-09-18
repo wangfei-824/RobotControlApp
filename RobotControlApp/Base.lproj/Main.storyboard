@@ -1,26 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RobotCtl" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5v5-jW-ASU">
+                                <rect key="frame" x="934" y="20" width="70" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="xUh-f5-gaJ"/>
+                                </constraints>
+                                <state key="normal" image="0"/>
+                                <connections>
+                                    <action selector="connectRosServer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="69j-Gt-d20"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffp-rj-VW7">
+                                <rect key="frame" x="934" y="96" width="70" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="pcx-dI-Nbe"/>
+                                </constraints>
+                                <state key="normal" image="STOP"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ff-fg-sEp">
+                                <rect key="frame" x="934" y="172" width="70" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="rMx-ck-ixC"/>
+                                </constraints>
+                                <state key="normal" image="一键返航"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEl-OT-YXd">
+                                <rect key="frame" x="934" y="248" width="70" height="110"/>
+                                <state key="normal" image="照相机"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wifi disconnected" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gph-0s-m8C">
+                                <rect key="frame" x="99" y="28" width="318" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="318" id="qpT-L1-rxc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzi-Gu-3C4" customClass="MyJoystickView" customModule="RobotCtl" customModuleProvider="target">
+                                <rect key="frame" x="99" y="205" width="318" height="308"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Gph-0s-m8C" firstAttribute="leading" secondItem="Kzi-Gu-3C4" secondAttribute="leading" id="0xZ-xS-EeG"/>
+                            <constraint firstItem="nEl-OT-YXd" firstAttribute="top" secondItem="0Ff-fg-sEp" secondAttribute="bottom" constant="8" symbolic="YES" id="4l5-bn-aBZ"/>
+                            <constraint firstItem="0Ff-fg-sEp" firstAttribute="trailing" secondItem="nEl-OT-YXd" secondAttribute="trailing" id="6X6-Ni-Lqh"/>
+                            <constraint firstItem="ffp-rj-VW7" firstAttribute="leading" secondItem="0Ff-fg-sEp" secondAttribute="leading" id="7G3-b8-7Gx"/>
+                            <constraint firstItem="Gph-0s-m8C" firstAttribute="trailing" secondItem="Kzi-Gu-3C4" secondAttribute="trailing" id="7Wo-Sy-i2M"/>
+                            <constraint firstItem="0Ff-fg-sEp" firstAttribute="leading" secondItem="nEl-OT-YXd" secondAttribute="leading" id="ASB-WT-4RE"/>
+                            <constraint firstItem="5v5-jW-ASU" firstAttribute="leading" secondItem="ffp-rj-VW7" secondAttribute="leading" id="Bwa-gG-SaI"/>
+                            <constraint firstItem="ffp-rj-VW7" firstAttribute="trailing" secondItem="0Ff-fg-sEp" secondAttribute="trailing" id="KNR-Ay-OTV"/>
+                            <constraint firstItem="0Ff-fg-sEp" firstAttribute="top" secondItem="ffp-rj-VW7" secondAttribute="bottom" constant="8" symbolic="YES" id="LGl-em-Nku"/>
+                            <constraint firstItem="Kzi-Gu-3C4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="205" id="Lka-bB-0Px"/>
+                            <constraint firstItem="5v5-jW-ASU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="XN0-xl-Kgl"/>
+                            <constraint firstItem="Gph-0s-m8C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="79" id="Ycw-82-cUs"/>
+                            <constraint firstItem="Gph-0s-m8C" firstAttribute="centerY" secondItem="5v5-jW-ASU" secondAttribute="centerY" id="YpW-Tc-XYa"/>
+                            <constraint firstItem="5v5-jW-ASU" firstAttribute="trailing" secondItem="ffp-rj-VW7" secondAttribute="trailing" id="g5s-Li-mqM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nEl-OT-YXd" secondAttribute="bottom" constant="410" id="lXQ-Mj-Z98"/>
+                            <constraint firstItem="ffp-rj-VW7" firstAttribute="top" secondItem="5v5-jW-ASU" secondAttribute="bottom" constant="8" symbolic="YES" id="rdL-xl-Avi"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kzi-Gu-3C4" secondAttribute="bottom" constant="255" id="so0-11-iG4"/>
+                            <constraint firstItem="Gph-0s-m8C" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="suS-qa-i4D"/>
+                            <constraint firstItem="5v5-jW-ASU" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="zOu-Mf-Bnp"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraBtn" destination="nEl-OT-YXd" id="01y-W9-MPp"/>
+                        <outlet property="connectBtn" destination="5v5-jW-ASU" id="yCn-Mz-MQd"/>
+                        <outlet property="joystickView" destination="Kzi-Gu-3C4" id="RQ3-mS-7Fo"/>
+                        <outlet property="messageLabel" destination="Gph-0s-m8C" id="5Vl-CV-nh2"/>
+                        <outlet property="return2OriBtn" destination="0Ff-fg-sEp" id="zcs-tp-r2Z"/>
+                        <outlet property="stopBtn" destination="ffp-rj-VW7" id="7Pn-xM-yx5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.18749999999999" y="121.875"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="0" width="110" height="110"/>
+        <image name="STOP" width="110" height="110"/>
+        <image name="一键返航" width="100" height="100"/>
+        <image name="照相机" width="110" height="110"/>
+    </resources>
 </document>
